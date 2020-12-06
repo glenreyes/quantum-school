@@ -1,0 +1,86 @@
+30 Nov 2020 7:26:12 PM	This log contains information about the import schema operation into project 'Quantum.School.Database' on computer 'PROJECTGREY-DES' by user 'chris'.
+30 Nov 2020 7:26:12 PM	Import of database schema has started.
+30 Nov 2020 7:26:19 PM	Gathering database credentials
+30 Nov 2020 7:26:19 PM	Gathering database options
+30 Nov 2020 7:26:19 PM	Gathering generic database scoped configuration option
+30 Nov 2020 7:26:19 PM	Gathering users
+30 Nov 2020 7:26:19 PM	Gathering roles
+30 Nov 2020 7:26:19 PM	Gathering application roles
+30 Nov 2020 7:26:19 PM	Gathering role memberships
+30 Nov 2020 7:26:19 PM	Gathering filegroups
+30 Nov 2020 7:26:19 PM	Gathering full-text catalogs
+30 Nov 2020 7:26:19 PM	Gathering assemblies
+30 Nov 2020 7:26:19 PM	Gathering certificates
+30 Nov 2020 7:26:19 PM	Gathering asymmetric keys
+30 Nov 2020 7:26:19 PM	Gathering symmetric keys
+30 Nov 2020 7:26:19 PM	Gathering encrypted symmetric keys
+30 Nov 2020 7:26:19 PM	Gathering schemas
+30 Nov 2020 7:26:19 PM	Gathering XML schema collections
+30 Nov 2020 7:26:19 PM	Gathering user-defined data types
+30 Nov 2020 7:26:19 PM	Gathering user-defined types
+30 Nov 2020 7:26:19 PM	Gathering table types
+30 Nov 2020 7:26:19 PM	Gathering unique keys for table types
+30 Nov 2020 7:26:19 PM	Gathering primary keys for table types
+30 Nov 2020 7:26:19 PM	Gathering indexes for table types
+30 Nov 2020 7:26:19 PM	Gathering check constraints for table types
+30 Nov 2020 7:26:19 PM	Gathering default constraints for table types
+30 Nov 2020 7:26:19 PM	Gathering partition functions
+30 Nov 2020 7:26:19 PM	Gathering partition schemes
+30 Nov 2020 7:26:19 PM	Gathering functions
+30 Nov 2020 7:26:19 PM	Gathering encrypted functions
+30 Nov 2020 7:26:19 PM	Gathering aggregates
+30 Nov 2020 7:26:19 PM	Gathering procedures
+30 Nov 2020 7:26:19 PM	Gathering encrypted procedures
+30 Nov 2020 7:26:19 PM	Gathering tables
+30 Nov 2020 7:26:20 PM	Gathering primary keys
+30 Nov 2020 7:26:20 PM	Gathering unique constraints
+30 Nov 2020 7:26:20 PM	Gathering foreign keys
+30 Nov 2020 7:26:20 PM	Gathering default constraints
+30 Nov 2020 7:26:20 PM	Gathering check constraints
+30 Nov 2020 7:26:20 PM	Gathering views
+30 Nov 2020 7:26:20 PM	Gathering encrypted views
+30 Nov 2020 7:26:20 PM	Gathering indexes
+30 Nov 2020 7:26:20 PM	Gathering statistics
+30 Nov 2020 7:26:20 PM	Gathering full-text index stoplists
+30 Nov 2020 7:26:20 PM	Gathering search property lists
+30 Nov 2020 7:26:20 PM	Gathering search properties
+30 Nov 2020 7:26:20 PM	Gathering full-text indexes
+30 Nov 2020 7:26:20 PM	Gathering column store indexes
+30 Nov 2020 7:26:20 PM	Gathering spatial indexes
+30 Nov 2020 7:26:20 PM	Gathering XML indexes
+30 Nov 2020 7:26:20 PM	Gathering Selective XML indexes
+30 Nov 2020 7:26:20 PM	Gathering encrypted triggers
+30 Nov 2020 7:26:20 PM	Gathering triggers
+30 Nov 2020 7:26:20 PM	Gathering encrypted and clr ddl triggers
+30 Nov 2020 7:26:20 PM	Gathering ddl triggers
+30 Nov 2020 7:26:20 PM	Creating edge constraints
+30 Nov 2020 7:26:20 PM	Gathering synonyms
+30 Nov 2020 7:26:20 PM	Gathering defaults
+30 Nov 2020 7:26:20 PM	Gathering data constraint uddt bindings
+30 Nov 2020 7:26:20 PM	Gathering rules
+30 Nov 2020 7:26:20 PM	Gathering data constraint uddt bindings
+30 Nov 2020 7:26:20 PM	Gathering message types
+30 Nov 2020 7:26:20 PM	Gathering queues
+30 Nov 2020 7:26:20 PM	Gathering contracts
+30 Nov 2020 7:26:20 PM	Gathering services
+30 Nov 2020 7:26:20 PM	Gathering event notifications
+30 Nov 2020 7:26:20 PM	Gathering remote service bindings
+30 Nov 2020 7:26:20 PM	Gathering broker priorities
+30 Nov 2020 7:26:20 PM	Gathering signatures
+30 Nov 2020 7:26:20 PM	Gathering data compression options
+30 Nov 2020 7:26:20 PM	Gathering sequence types
+30 Nov 2020 7:26:20 PM	Gathering security policies
+30 Nov 2020 7:26:20 PM	Gather column encryption keys
+30 Nov 2020 7:26:20 PM	Gathering column master keys
+30 Nov 2020 7:26:20 PM	Gathering external data sources
+30 Nov 2020 7:26:20 PM	Gathering external file formats
+30 Nov 2020 7:26:20 PM	Gathering external tables
+30 Nov 2020 7:26:20 PM	Gathering extended properties
+30 Nov 2020 7:26:20 PM	Gathering credentials
+30 Nov 2020 7:26:20 PM	Gathering logins
+30 Nov 2020 7:26:20 PM	Gathering server audits
+30 Nov 2020 7:26:21 PM	Scanning project for duplicate elements
+30 Nov 2020 7:26:21 PM	Finished duplicate element processing
+30 Nov 2020 7:26:22 PM	Finished importing database.
+30 Nov 2020 7:26:22 PM	A summary of the import was saved to the following location: C:\Users\chris\source\repos\Quantum.School.Database\Quantum.School\Quantum.School.Database\Import Schema Logs\Quantum.School.Datab_20201130112612.log
+30 Nov 2020 7:26:22 PM	Click Finish to continue...

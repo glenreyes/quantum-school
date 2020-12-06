@@ -1,0 +1,97 @@
+<div class="content px-4" *ngIf="!selectedItem">
+	<div>
+		<h1>Subjects</h1>
+
+		<ng-container *ngIf="isLoading">
+			<p><em>Loading, please wait&hellip;</em></p>
+		</ng-container>
+
+		<ng-container *ngIf="!isLoading">
+
+			<ng-container *ngIf="list.length == 0">
+				<p><em>No entries found in the database.</em></p>
+				<button type="button" class="btn btn-primary" (click)="add()">
+					Create a new subject
+				</button>
+			</ng-container>
+
+			<ng-container *ngIf="list.length > 0">
+				<button type="button" class="btn btn-primary btn-add btn-top" (click)="add()">
+					<i class="oi oi-plus"></i>
+				</button>
+				<div class="card" *ngFor="let item of list">
+					<h5 class="card-header">
+						<button type="button" class="btn" title="Edit" (click)="edit(item)">
+							<i class="oi oi-pencil"></i>
+						</button>
+						<button type="button" class="btn" title="Delete" (click)="delete(item)">
+							<i class="oi oi-trash"></i>
+						</button>
+						{{ item.name }}
+					</h5>
+					<div class="card-body">
+						<p class="card-text" [innerHTML]="item.description | ellipsize:160"></p>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary btn-add" (click)="add()">
+					<i class="oi oi-plus"></i>
+				</button>
+			</ng-container>
+
+		</ng-container>
+	</div>
+</div>
+
+<div class="content px-4" *ngIf="selectedItem">
+	<div>
+		<h1 *ngIf="selectedItem.id">Edit Subject</h1>
+		<h1 *ngIf="!selectedItem.id">Add New Subject</h1>
+
+		<form [formGroup]="form" (ngSubmit)="formSubmit()">
+			<input type="hidden" formControlName="id" />
+
+			<fieldset>
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control" formControlName="name" />
+				</div>
+
+				<div class="form-group">
+					<label>Description</label>
+					<input type="text" class="form-control" formControlName="description" />
+				</div>
+			</fieldset>
+
+			<button type="button" class="btn btn-secondary" (click)="formCancel(item)">
+				Cancel
+			</button>
+			<button type="submitn" class="btn btn-primary" [disabled]="!form.valid">
+				Save
+			</button>
+		</form>
+	</div>
+</div>
+
+
+
+
+<!--Delete Modal Popup -->
+<div class="modal fade" id="delete-confirm-popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			Are you sure you want to delete xxxx
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			<button type="button" class="btn btn-warning">Delete</button>
+		</div>
+		</div>
+	</div>
+</div>

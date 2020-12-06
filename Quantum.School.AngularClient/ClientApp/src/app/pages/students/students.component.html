@@ -1,0 +1,103 @@
+<div class="content px-4" *ngIf="!selectedItem">
+	<div>
+		<h1>Students</h1>
+
+		<ng-container *ngIf="isLoading">
+			<p><em>Loading, please wait&hellip;</em></p>
+		</ng-container>
+
+		<ng-container *ngIf="!isLoading">
+
+			<ng-container *ngIf="list.length == 0">
+				<p><em>No entries found in the database.</em></p>
+				<button type="button" class="btn btn-primary" (click)="add()">
+					Register a new student
+				</button>
+			</ng-container>
+
+			<ng-container *ngIf="list.length > 0">
+				<button type="button" class="btn btn-primary btn-add btn-top" (click)="add()">
+					<i class="oi oi-plus"></i>
+				</button>
+				<div class="card" *ngFor="let item of list">
+					<h5 class="card-header">
+						<button type="button" class="btn" title="Edit" (click)="edit(item)">
+							<i class="oi oi-pencil"></i>
+						</button>
+						<button type="button" class="btn" title="Delete" (click)="delete(item)">
+							<i class="oi oi-trash"></i>
+						</button>
+						{{ item.firstName }}
+						{{ item.lastName }}
+					</h5>
+					<div class="card-body">
+						<dl class="card-text">
+							<dt>Enrolled Classes</dt>
+							<dd>XXX</dd>
+						</dl>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary btn-add" (click)="add()">
+					<i class="oi oi-plus"></i>
+				</button>
+			</ng-container>
+
+		</ng-container>
+	</div>
+</div>
+
+<div class="content px-4" *ngIf="selectedItem">
+	<div>
+		<h1 *ngIf="selectedItem.id">Edit Student</h1>
+		<h1 *ngIf="!selectedItem.id">Register New Student</h1>
+
+		<form [formGroup]="form" (ngSubmit)="formSubmit()">
+			<input type="hidden" formControlName="id" />
+
+			<fieldset>
+				<div class="form-group">
+					<label>First Name</label>
+					<input type="text" class="form-control" formControlName="firstName" />
+				</div>
+				<div class="form-group">
+					<label>Middle Name</label>
+					<input type="text" class="form-control" formControlName="middleName" />
+				</div>
+				<div class="form-group">
+					<label>Last Name</label>
+					<input type="text" class="form-control" formControlName="lastName" />
+				</div>
+				<div class="form-group">
+					<label>Gender</label>
+					<select class="form-control" formControlName="gender">
+						<option *ngFor="let gender of genderList" [value]="gender.id">{{ gender.name }}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Birth Date</label>
+					<div class="input-group col-xs-3">
+						<!-- Sorry, maxDate should be computed, I was being lazy :D -->
+						<input class="form-control" placeholder="yyyy-mm-dd" [maxDate]="{year: 2014, month: 12, day: 31}"
+							formControlName="birthDate" ngbDatepicker #d="ngbDatepicker" readonly />
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+								<i class="oi oi-calendar"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>GPA</label>
+					<input type="text" maxlength="4" class="form-control" formControlName="gpa"  />
+				</div>
+			</fieldset>
+
+			<button type="button" class="btn btn-secondary" (click)="formCancel(item)">
+				Cancel
+			</button>
+			<button type="submitn" class="btn btn-primary" [disabled]="!form.valid">
+				Save
+			</button>
+		</form>
+	</div>
+</div>

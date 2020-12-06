@@ -1,0 +1,18 @@
+h1, h2, h3, h4, h5, h6 { font-weight:300; }
+h2 { text-transform:uppercase; }
+
+table.main { margin-bottom:80px; }
+
+table.main tbody tr { cursor:pointer; transition:background 600ms ease; }
+table.main tbody tr:hover { background:#ddd; transition:background 300ms ease; }
+table.main tbody tr.highlighted,
+table.main tbody tr.highlighted:hover { background-color:#747a80; color:#fff; }
+
+th.age,
+td.age,
+th.gpa,
+td.gpa { width:200px; text-align:center; }
+
+span.highlighted { font-weight:500; color:#f60; }
+
+.content .container { margin:0; padding:0; }

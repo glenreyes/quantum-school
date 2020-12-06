@@ -1,0 +1,200 @@
+<div class="content px-4" *ngIf="!selectedItem && !classStudentsEditMode">
+	<div>
+		<h1>Class Schedules</h1>
+
+		<ng-container *ngIf="isLoading">
+			<p><em>Loading, please wait&hellip;</em></p>
+		</ng-container>
+
+		<ng-container *ngIf="!isLoading">
+
+			<ng-container *ngIf="list.length == 0">
+				<p><em>No entries found in the database.</em></p>
+				<button type="button" class="btn btn-primary" (click)="add()">
+					Create a new class schedule
+				</button>
+			</ng-container>
+
+			<ng-container *ngIf="list.length > 0">
+				<button type="button" class="btn btn-primary btn-add btn-top" (click)="add()">
+					<i class="oi oi-plus"></i> Add Class Schedule
+				</button>
+				<table class="table main" aria-labelledby="tableLabel">
+					<thead class="thead-dark">
+						<tr>
+							<th>Subject</th>
+							<th>Location</th>
+							<th>Teacher</th>
+							<th class="actions"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of list" [ngClass]="{'highlighted' : highlightedItem.id == item.id}" (click)="highlight(item)">
+							<td>
+								{{ item.subject?.name }}
+							</td>
+							<td>
+								{{ item.location }}
+							</td>
+							<td>
+								{{ item.teacher?.title }}
+								{{ item.teacher?.firstName }}
+								{{ item.teacher?.lastName }}
+							</td>
+							<td class="actions">
+								<button type="button" class="btn" title="Edit" (click)="edit(item)">
+									<i class="oi oi-pencil"></i>
+								</button>
+								<button type="button" class="btn" title="Delete" (click)="delete(item)">
+									<i class="oi oi-trash"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<ng-container *ngIf="list.length > 0">
+					<button type="button" class="btn btn-secondary btn-add btn-add-student" (click)="showClassStudentForm()" *ngIf="availableStudents && availableStudents.length > 0">
+						<i class="oi oi-plus"></i> Add Student
+					</button>
+
+					<h2>{{ highlightedItem.subject.name }}</h2>
+					<h6>with {{ highlightedItem.teacher.title }} {{ highlightedItem.teacher.firstName }} {{ highlightedItem.teacher.lastName }}</h6>
+					<p>{{ highlightedItem.subject.description }}</p>
+
+					<table class="table students" aria-labelledby="tableLabel">
+						<thead class="thead-dark">
+							<tr>
+								<th>Student Name</th>
+								<th class="age">Age</th>
+								<th class="gpa">GPA</th>
+								<th class="actions"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let student of classStudents" [ngClass]="{'table-warning' : student.gpa > 3.4}">
+								<td>
+									{{ student.firstName }}
+									{{ student.lastName }}
+								</td>
+								<td class="age">
+									{{ student.age }}
+								</td>
+								<td class="gpa">
+									<span [ngClass]="{'highlighted' : student.gpa > 3.4}">
+										{{ student.gpa.toFixed(2) }}
+									</span>
+								</td>
+								<td class="actions">
+									<button type="button" class="btn" title="Delete" (click)="removeClassStudent(highlightedItem.id, student.id)">
+										<i class="oi oi-trash"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</ng-container>
+			</ng-container>
+		</ng-container>
+	</div>
+</div>
+
+<div class="content px-4" *ngIf="selectedItem">
+	<div>
+		<h1 *ngIf="selectedItem.id">Edit Class Schedule</h1>
+		<h1 *ngIf="!selectedItem.id">Add New Class Schedule</h1>
+
+		<form [formGroup]="form" (ngSubmit)="formSubmit()">
+			<input type="hidden" formControlName="id" />
+
+			<fieldset>
+				<div class="form-group">
+					<label>Subject</label>
+					<select class="form-control" formControlName="subject">
+						<option *ngFor="let subject of subjectList" [value]="subject.id">{{ subject.name }}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Teacher</label>
+					<select class="form-control" formControlName="teacher">
+						<option *ngFor="let teacher of teacherList" [value]="teacher.id">{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Location</label>
+					<input type="text" class="form-control" formControlName="location" />
+				</div>
+			</fieldset>
+
+			<button type="button" class="btn btn-secondary" (click)="formCancel(item)">
+				Cancel
+			</button>
+			<button type="submitn" class="btn btn-primary" [disabled]="!form.valid">
+				Save
+			</button>
+		</form>
+	</div>
+</div>
+
+<div class="content px-4" *ngIf="classStudentsEditMode">
+	<div>
+		<h1>Add Student to {{ highlightedItem?.subject.name }}</h1>
+
+		<form [formGroup]="studentForm" (ngSubmit)="studentFormSubmit()">
+			<input type="hidden" formControlName="id" />
+			<fieldset>
+
+				<div class="container">
+					<div class="row">
+						<div class="form-group col">
+							<label>Available Students</label>
+							<select class="form-control" #classStudentDropdown (change)='updateClassStudentForm(classStudentDropdown.value)'>
+								<option *ngFor="let student of availableStudents" [value]="student.id">{{ student.firstName }} {{ student.lastName }}</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm">
+							<label>First Name</label>
+							<input type="text" class="form-control" formControlName="firstName" readonly />
+						</div>
+						<div class="form-group col-sm">
+							<label>Middle Name</label>
+							<input type="text" class="form-control" formControlName="middleName" readonly />
+						</div>
+						<div class="form-group col-sm">
+							<label>Last Name</label>
+							<input type="text" class="form-control" formControlName="lastName" readonly />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm">
+							<label>Gender</label>
+							<input type="text" class="form-control" formControlName="gender" readonly />
+						</div>
+						<div class="form-group col-sm">
+							<label>Birth Date</label>
+							<input type="text" class="form-control" formControlName="birthDate" readonly />
+						</div>
+						<div class="form-group col-sm">
+							<label>GPA</label>
+							<input type="text" maxlength="4" class="form-control" formControlName="gpa" readonly />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col">
+							<button type="button" class="btn btn-secondary" (click)="cancelClassStudentForm()">
+								Cancel
+							</button>
+							<button type="submit" class="btn btn-primary">
+								Add to Class
+							</button>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+		</form>
+	</div>
+</div>

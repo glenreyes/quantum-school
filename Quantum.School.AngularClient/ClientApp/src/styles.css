@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a { color:#0366d6; }
+
+code { color:#e01a76; }
+
+.btn-primary { color:#fff; background-color:#1b6ec2; border-color:#1861ac; }
+.btn-label { position:relative; left:-12px; display: inline-block; padding: 6px 12px; background: rgba(0,0,0,0.15); border-radius:3px 0 0 3px; }
+.btn-labeled { padding-top:0; padding-bottom:0;}
+.btn { margin-bottom:10px; margin-right:10px; }
+
+.card { margin-bottom:10px; animation:fade-in 1s; }
+.card .btn { float:right; margin:0; font-size:0.75rem; padding:0.35rem; line-height:1; }
+.card .btn:hover { background:#666; color:#fff; }
+.card-header { padding:12px 12px 12px 20px; }
+
+.table .btn { float:right; margin:0; font-size:0.75rem; padding:0.35rem; line-height:1; }
+.table .btn:hover { background:#666; color:#fff; }
+.table th.actions,
+.table td.actions { padding-left:0; padding-right:0; text-align:center; width:64px; }
+
+.content { padding-bottom:80px; }
+.content > div { position: relative; }
+.content h1 { margin-bottom:32px; font-size:2rem; font-weight:200; text-transform:uppercase; }
+.content .btn-add { float:right; margin:0; font-size:0.75rem; }
+.content .btn-top { float:none; position:absolute; top:0; right:0; }
+.content fieldset { padding:2rem 0; }
+
+.modal-popup { z-index:1000; position:fixed; background-color:rgba(0,0,0,0.8); top:0; left:0; right:0; bottom:0; backdrop-filter: blur(2px); overflow:scroll; animation:fade-in 1s; }
+.modal-popup > .window { position:absolute;  }
+
+/******************************/
+/* ANIMATIONS                 */
+/******************************/
+
+@keyframes fade-in
+{
+	0% { opacity:0; }
+	100% { opacity:1; }
+}
+
+@keyframes fade-out
+{
+	0% { opacity:1; }
+	100% { opacity:0; }
+}

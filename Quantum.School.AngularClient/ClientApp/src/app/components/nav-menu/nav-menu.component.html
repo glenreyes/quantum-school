@@ -1,0 +1,50 @@
+<div class="top-row pl-4 navbar navbar-dark">
+	<a class="navbar-brand" [routerLink]="['/']">Quantum School</a>
+	<button class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation"
+		[attr.aria-expanded]="isExpanded" (click)="toggle()">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+</div>
+
+<div [ngClass]="navMenuCssClass" (click)="toggle()">
+	<ul class="nav flex-column">
+		<li class="nav-item px-3">
+			<a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/']">
+				<span class="oi oi-home" aria-hidden="true"></span> Home
+			</a>
+		</li>
+		<!--
+		<li class="nav-item px-3">
+			<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/counter']">
+				<span class="oi oi-plus" aria-hidden="true"></span> Counter
+			</a>
+		</li>
+		<li class="nav-item px-3">
+			<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/fetch-data']">
+				<span class="oi oi-list" aria-hidden="true"></span> Fetch Data
+			</a>
+		</li>
+		-->
+		<li class="nav-item px-3">
+			<a class="nav-link" [routerLinkActive]="['active']"  [routerLink]="['/class-schedules']">
+				<span class="oi oi-calendar" aria-hidden="true"></span> Class Schedules
+			</a>
+		</li>
+		<li class="nav-item px-3">
+			<a class="nav-link" [routerLinkActive]="['active']"  [routerLink]="['/subjects']">
+				<span class="oi oi-book" aria-hidden="true"></span> Subjects
+			</a>
+		</li>
+		<li class="nav-item px-3">
+			<a class="nav-link" [routerLinkActive]="['active']"  [routerLink]="['/teachers']">
+				<span class="oi oi-person" aria-hidden="true"></span> Teachers
+			</a>
+		</li>
+		<li class="nav-item px-3">
+			<a class="nav-link" [routerLinkActive]="['active']"  [routerLink]="['/students']">
+				<span class="oi oi-people" aria-hidden="true"></span> Students
+			</a>
+		</li>
+
+	</ul>
+</div>
