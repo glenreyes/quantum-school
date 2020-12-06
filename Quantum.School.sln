@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.809.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantum.School.Core", "Quantum.School.Core\Quantum.School.Core.csproj", "{0782974A-C372-4923-9FA9-28E717185A24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantum.School.Core", "Quantum.School.Core\Quantum.School.Core.csproj", "{0782974A-C372-4923-9FA9-28E717185A24}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7E0CA7CF-0ADF-4DE9-9612-E2460154B405}"
 EndProject
@@ -13,16 +13,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5A9CE49F-5FE9-47B3-B9D2-14AEDF053D8D}"
 	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantum.School.Infrastructure", "Quantum.School.Infrastructure\Quantum.School.Infrastructure.csproj", "{B49C3075-8B93-44E8-8CA5-B632D508EEF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantum.School.Infrastructure", "Quantum.School.Infrastructure\Quantum.School.Infrastructure.csproj", "{B49C3075-8B93-44E8-8CA5-B632D508EEF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantum.School.Api", "Quantum.School.Api\Quantum.School.Api.csproj", "{6922A7A0-6E96-47EE-B580-76100CAA6E5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantum.School.Api", "Quantum.School.Api\Quantum.School.Api.csproj", "{6922A7A0-6E96-47EE-B580-76100CAA6E5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantum.School.AngularClient", "Quantum.School.AngularClient\Quantum.School.AngularClient.csproj", "{B561C079-C43F-492D-A804-149986D4381A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantum.School.AngularClient", "Quantum.School.AngularClient\Quantum.School.AngularClient.csproj", "{B561C079-C43F-492D-A804-149986D4381A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Quantum.School.Database", "Quantum.School.Database\Quantum.School.Database.sqlproj", "{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,17 +48,24 @@ Global
 		{B561C079-C43F-492D-A804-149986D4381A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B561C079-C43F-492D-A804-149986D4381A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B561C079-C43F-492D-A804-149986D4381A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0612CCAE-2632-49FB-94A1-1C21E1E0845D}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0782974A-C372-4923-9FA9-28E717185A24} = {7E0CA7CF-0ADF-4DE9-9612-E2460154B405}
 		{B49C3075-8B93-44E8-8CA5-B632D508EEF8} = {7E0CA7CF-0ADF-4DE9-9612-E2460154B405}
 		{6922A7A0-6E96-47EE-B580-76100CAA6E5C} = {A0EFD063-13FC-493C-A525-49818A98FE19}
 		{B561C079-C43F-492D-A804-149986D4381A} = {DFAB6C3B-9388-48A9-AA04-34C9FB663810}
+		{AFD25C6D-882D-47F1-9E55-AEA04E4EFDA8} = {7E0CA7CF-0ADF-4DE9-9612-E2460154B405}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0612CCAE-2632-49FB-94A1-1C21E1E0845D}
 	EndGlobalSection
 EndGlobal
