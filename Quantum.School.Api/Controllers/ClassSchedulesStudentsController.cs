@@ -67,7 +67,7 @@ namespace Quantum.School.Api
 		}
 
 		// GET /students
-		// Gets all students under the specified class schedule
+		// Get all students under the specified class schedule
 		[HttpGet]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesErrorResponseType(typeof(ProblemDetails))]
@@ -101,6 +101,7 @@ namespace Quantum.School.Api
 		}
 
 		// GET /students/:id
+		// Get specific student under a class
 		[HttpGet("{studentId}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesErrorResponseType(typeof(ProblemDetails))]
@@ -136,6 +137,7 @@ namespace Quantum.School.Api
 		}
 
 		// PUT /students/:id
+		// Assign a student to a class
 		[HttpPut("{studentId}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -153,8 +155,9 @@ namespace Quantum.School.Api
 				if (student == null)
 					return NotFound();
 
-				//student.ClassSchedules.Add(classSchedule);
-				//this.studentRepository.Update(student);
+				// Business rule: Cannot assign a student to a class that has a student with the same last name
+				if (classSchedule.Students.Any(x => String.Equals(x.LastName, student.LastName, StringComparison.OrdinalIgnoreCase)))
+					return BadRequest();
 
 				classSchedule.Students.Add(student);
 				classScheduleRepository.Update(classSchedule);
@@ -168,6 +171,7 @@ namespace Quantum.School.Api
 		}
 
 		// DELETE /students/:id
+		// Remove student from a class
 		[HttpDelete("{studentId}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
